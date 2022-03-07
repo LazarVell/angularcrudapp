@@ -1,12 +1,12 @@
 {
   "contactList": [
     {
-      "name": "PapasFritasAdmin",
-      "address": "blwd 16",
-      "birthday": "2022-03-14T23:00:00.000Z",
-      "phoneNumber": "064123",
-      "email": "lalala@lalala.net",
-      "type": "Admin",
+      "name": "Thomas A. Anderson aka Neo",
+      "address": "Lower Downtown 16, Capital City, USA",
+      "birthday": "1962-03-10T23:00:00.000Z",
+      "phoneNumber": "(312)-555-0690",
+      "email": "Neo@thematrix.net",
+      "type": "TheOne",
       "id": 1
     }
   ],
