@@ -1,56 +1,70 @@
+<!-- HEADER -->
 <mat-toolbar color="primary">
   <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
     <mat-icon>class</mat-icon>
   </button>
   <span>Address Book</span>
   <span class="example-spacer"></span>
+
+  <!-- new entry button -->
   <button mat-raised-button color="warn" (click)="openDialog()">Add a new entry</button>
+
+  <!-- Personal Github link -->
   <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" (click)="showGitHub()">
     <mat-icon>share</mat-icon>
   </button>
 </mat-toolbar>
 
+<!-- TABLE START -->
+<!-- Material UI FILTER -->
 <div class="container">
   <div style="margin-top: 10px;">
     <mat-form-field appearance="standard">
       <mat-label>Filter</mat-label>
-      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Search by Name, Address etc." #input>
     </mat-form-field>
     
     <div class="mat-elevation-z8">
       <table mat-table [dataSource]="dataSource" matSort>
     
+        <!-- NAME -->
         <ng-container matColumnDef="name">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
           <td mat-cell *matCellDef="let row"> {{row.name}} </td>
         </ng-container>
     
+        <!-- ADDRESS -->
         <ng-container matColumnDef="address">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Address </th>
           <td mat-cell *matCellDef="let row"> {{row.address}} </td>
         </ng-container>
-    
+        
+        <!-- BIRTHDAY -->
         <ng-container matColumnDef="birthday">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Birthday </th>
           <!-- using pipe to format date-->
           <td mat-cell *matCellDef="let row"> {{row.birthday | date }} </td>
         </ng-container>
     
+        <!-- PHONE NUMBER -->
         <ng-container matColumnDef="phoneNumber">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Phone Number </th>
           <td mat-cell *matCellDef="let row"> {{row.phoneNumber}} </td>
         </ng-container>
 
+        <!-- EMAIL-->
         <ng-container matColumnDef="email">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> E-mail </th>
           <td mat-cell *matCellDef="let row"> {{row.email}} </td>
         </ng-container>
 
+        <!-- CONTACT TYPE -->
         <ng-container matColumnDef="type">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Contact type </th>
           <td mat-cell *matCellDef="let row"> {{row.type}} </td>
         </ng-container>
 
+        <!-- EDIT AND DELETE BUTTONS-->
         <ng-container matColumnDef="action">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
           <td mat-cell *matCellDef="let row"> 
@@ -72,6 +86,7 @@
         </tr>
       </table>
     
+      <!-- Paginator to show 5,10,25,100 entries if available-->
       <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
     </div>
     

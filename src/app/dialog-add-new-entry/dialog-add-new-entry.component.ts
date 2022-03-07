@@ -11,6 +11,7 @@ import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 export class DialogAddNewEntryComponent implements OnInit {
 
   contactForm !: FormGroup;
+  //actionBtn component will change value according to the user input - in this case, whether the create or edit button was clicked.
   actionBtn: string = "Save"
   constructor(private formBuilder: FormBuilder, 
     private api: ApiService,
@@ -19,6 +20,7 @@ export class DialogAddNewEntryComponent implements OnInit {
     private dialogRef : MatDialogRef<DialogAddNewEntryComponent>) { }
 
   ngOnInit(): void {
+    //render the Form components on init.
     this.contactForm = this.formBuilder.group({
       name: ['', Validators.required],
       address: ['', Validators.required,],
@@ -28,6 +30,7 @@ export class DialogAddNewEntryComponent implements OnInit {
       type: ['', Validators.required]
     });
 
+    //this code will be executed only if data for editing was passed, which is how we can tell a new Contact form compared to an Edit Contact form.
     if(this.editData){
       //this.actionBtn changes the string value inside of the button to reflect it was used for editing, not adding.
       this.actionBtn = "Update";
@@ -40,7 +43,7 @@ export class DialogAddNewEntryComponent implements OnInit {
     }
   }
 
-  //function for posting contact to JSON server
+  //function for posting contact to JSON server, also calls the contact update if editing data is present, which can only happen if we request to edit an existing contact.
   addContact(){
     if(!this.editData){
       if(this.contactForm.valid){
@@ -58,6 +61,7 @@ export class DialogAddNewEntryComponent implements OnInit {
         })
       }
      } else {
+       //update contact call if editData is true.
         this.updateContact();
       }
   }

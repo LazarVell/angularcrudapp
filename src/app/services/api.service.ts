@@ -8,6 +8,7 @@ export class ApiService {
 
   constructor( private http : HttpClient) { }
 
+  // POST, GET, PUT and DELETE 
   postContact(data : any){
     return this.http.post<any>("http://localhost:3000/contactList/", data )
   }

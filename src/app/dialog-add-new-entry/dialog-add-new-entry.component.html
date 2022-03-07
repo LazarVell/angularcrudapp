@@ -3,33 +3,46 @@
   <!--Form Start, binding to the form in the TS file according to specification and adding fields -->
   <form [formGroup]="contactForm">
     <mat-form-field appearance="outline">
+
+      <!-- Name -->
         <mat-label>Name:</mat-label>
         <input formControlName="name" matInput placeholder="Name" />
       </mat-form-field>
       <mat-form-field appearance="outline">
+
+        <!-- Address -->
         <mat-label>Address:</mat-label>
         <input formControlName="address" matInput placeholder="Address" />
       </mat-form-field>
       <mat-form-field appearance="outline">
+
+        <!-- Birthday -->
         <mat-label>Birthday:</mat-label>
         <input formControlName="birthday" matInput [matDatepicker]="picker">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
       <mat-form-field appearance="outline">
+
+        <!-- Phone Number -->
         <mat-label>Phone Number:</mat-label>
         <input formControlName="phoneNumber" matInput placeholder="Phone Number" />
       </mat-form-field>
       <mat-form-field appearance="outline">
+        <!-- Email -->
         <mat-label>Email:</mat-label>
         <input formControlName="email" matInput placeholder="Email" />
       </mat-form-field>
       <mat-form-field appearance="outline">
+
+        <!-- Contact Type -->
         <mat-label>Contact type - Friend, family etc. :</mat-label>
         <input formControlName="type" matInput placeholder="Type" />
       </mat-form-field>
     </form>
 </div>
+
+<!-- Add/Edit contact button, and Close button -->
 <div mat-dialog-action [align]="'end'">
   <button style="margin-right: 10px;" mat-raised-button color="primary" (click)="addContact()">{{actionBtn}}</button>
   <button mat-raised-button color="warn" mat-dialog-close>Close</button>

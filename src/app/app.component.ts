@@ -11,9 +11,10 @@ import {MatTableDataSource} from '@angular/material/table';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+//Implement OnInit to be able to refresh contact list.
 export class AppComponent implements OnInit{
   title = 'angularcrudapp';
-
+  //displayedColums gives us the colums for our data.
   displayedColumns: string[] = ['name', 'address', 'birthday', 'phoneNumber', 'email', 'type', 'action'];
   dataSource!: MatTableDataSource<any>;
 
@@ -36,14 +37,14 @@ export class AppComponent implements OnInit{
       };
     });
   }
-
+  //Show confirmation window and link to Github if OK is clicked.
   showGitHub(){
     if (window.confirm('Click OK to go to my Github, or cancel to stay on this page. Thank you!')) 
 {
 window.location.href='https://github.com/LazarVell/';
 };
   }
-
+  //GET CONTACTS CALL
   getAllContacts(){
     this.api.getContact()
     .subscribe({
@@ -58,7 +59,7 @@ window.location.href='https://github.com/LazarVell/';
       }
     })
   }
-
+  //EDIT CONTACT CALL
   editContact(row: any){
     this.dialog.open(DialogAddNewEntryComponent, {
       width: '30%',
@@ -69,7 +70,7 @@ window.location.href='https://github.com/LazarVell/';
       };
     });
   };
-
+  //DELETE CONTACT CALL
   deleteProduct(id : number){
     this.api.deleteContact(id)
     .subscribe({
