@@ -1,0 +1,23 @@
+{
+  "contactList": [
+    {
+      "name": "PapasFritasAdmin",
+      "address": "blwd 16",
+      "birthday": "2022-03-14T23:00:00.000Z",
+      "phoneNumber": "064123",
+      "email": "lalala@lalala.net",
+      "type": "Admin",
+      "id": 1
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
